@@ -177,28 +177,16 @@ def run(lattice,T, epochs,video=True):
             lattice.system[N, M] = -1*lattice.system[N,M]
         elif np.exp(-(E - lattice.energy(N, M))/T) >= np.random.rand():
             lattice.system[N, M] = -1*lattice.system[N,M]
-        #m= lattice.magnetization 
-        #M_av+=m
-        '''
-        m = lattice.magnetization
-        n= lattice.capital_M2
-        m_av+=m*np.exp(E/T)
-        n_av+=n*np.exp(E/T)
-        z+=np.exp(E/T)
-        '''
-        #m,n = lattice.internal_energy
-        #m_av+=m*np.exp(E/T)
-        #n_av+=n*np.exp(E/T)
-        #z+=np.exp(E/T)
-    #m_av=m_av/z
-    #n_av=n_av/z
+        
     print (T)
-    #return ((n_av - m_av**2))/(lattice.size*lattice.size*lattice.T)
+    '''to returen specific heat '''
     #return ((lattice.heat_capacity)/(T*T))
+    '''to return the state of the system'''
     #return lattice.system
-    #return M_av/epochs
-    #return np.sum(lattice.system)/(lattice.size**2)
+    #return np.abs(np.sum(lattice.system)/(lattice.size**2))
+    ''' to return the staggered magnetization '''
     #return lattice.magnetization
+    '''to return the susceptibility'''
     return lattice.susceptibility/(lattice.size*lattice.size*T)
 
     
