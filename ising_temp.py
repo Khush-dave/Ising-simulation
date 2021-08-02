@@ -207,9 +207,9 @@ D=-1
 
 H=1
 #temperature = np.linspace(2.5,0.1,30)
-initial_state='u'
+initial_state='r'
 size=10
-epochs=10000
+epochs=1000000
 video=True
 Mhash=[]
 M10=[]
@@ -218,12 +218,12 @@ M40=[]
 T=[]
 
 for i in range(3):   
-    lattice = IsingLattice(0.5, initial_state=initial_state, size=size)
-    Mhash.append(run(lattice,0.5,500000,video))
-    for temperature in np.arange(0.5,4,0.1):
+    lattice = IsingLattice(4, initial_state=initial_state, size=size)
+    Mhash.append(run(lattice,4,500000,video))
+    for temperature in np.arange(4,0.5,-0.1):
         #lattice = IsingLattice(temperature, initial_state=initial_state, size=size)
         if i==0:
-            M10.append(run(lattice,temperature, 2*epochs,video))
+            M10.append(run(lattice,temperature, epochs,video))
             T.append(temperature)
         elif i==1:
             M20.append(run(lattice,temperature ,epochs,video))
