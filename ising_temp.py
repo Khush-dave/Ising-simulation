@@ -229,7 +229,7 @@ for i in range(3):
             M20.append(run(lattice,temperature ,epochs,video))
         else :
             M40.append(run(lattice, temperature,epochs,video))
-    size*=2
+    size+=10
 
 
 chart_plot(T,M10,M20,M40)
